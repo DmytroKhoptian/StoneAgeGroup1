@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Island_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5111537067328385286, guid: 3d50dc56b8b4dc34298a3129e1e0b714, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5111537067328385287, guid: 3d50dc56b8b4dc34298a3129e1e0b714, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -194,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 28484552}
   - component: {fileID: 28484553}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCollider1
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -692,13 +696,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 967619291639319321}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Jump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -840,7 +844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1724992141}
   - component: {fileID: 1724992142}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCollider2
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -896,7 +900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1735946957}
   - component: {fileID: 1735946958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCollider3
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -1225,9 +1229,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967495636190904918}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d58ab665b2a680a4daaa6eb2df767f49, type: 2}
+  m_Controller: {fileID: 9100000, guid: d927661667adf2141b114210a2db2782, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12817,6 +12821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 965012326363230762}
   - component: {fileID: 997919055507432476}
+  - component: {fileID: 967619291639319322}
   - component: {fileID: 977715032182245012}
   - component: {fileID: 967619291639319321}
   m_Layer: 0
@@ -12839,7 +12844,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 200
-  playerJumpForce: 17
+  playerJumpForce: 7
+  animObject: {fileID: 967495636190904918}
+--- !u!58 &967619291639319322
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967619291639319320}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  serializedVersion: 2
+  m_Radius: 0.15
 --- !u!1 &967625348515811493
 GameObject:
   m_ObjectHideFlags: 0
@@ -13563,8 +13585,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.045642912, y: 0.37551594}
-  m_Size: {x: 0.8912858, y: 1.8182573}
+  m_Offset: {x: 0, y: 0.38602352}
+  m_Size: {x: 0.8912858, y: 1.788981}
   m_Direction: 0
 --- !u!50 &997919055507432476
 Rigidbody2D:
@@ -15418,6 +15440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Island_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4260241688408709881, guid: f4f74355ff5f1ae488ac6f6dc5157251, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4260241688408709886, guid: f4f74355ff5f1ae488ac6f6dc5157251, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -15474,6 +15500,10 @@ PrefabInstance:
     - target: {fileID: 5111537067328385286, guid: 3d50dc56b8b4dc34298a3129e1e0b714, type: 3}
       propertyPath: m_Name
       value: Island_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5111537067328385286, guid: 3d50dc56b8b4dc34298a3129e1e0b714, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5111537067328385287, guid: 3d50dc56b8b4dc34298a3129e1e0b714, type: 3}
       propertyPath: m_RootOrder
