@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+public class MyPlayerMovement : MonoBehaviour
 {
     [Header("Player Property")]
     [SerializeField] private float playerSpeed;
     [SerializeField] private float playerJumpForce;
 
     [SerializeField] private GameObject animObject;
+    [SerializeField] private Animator animator;
 
     private SpriteRenderer spriteRenderer;
 
@@ -21,13 +22,16 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = animObject.GetComponent<SpriteRenderer>();
+        animator = animObject.GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
         //ДЗ добавить enum
-        rb.velocity = new Vector2(currentPlayerSpeed*Time.deltaTime, rb.velocity.y);  
+        rb.velocity = new Vector2(currentPlayerSpeed*Time.deltaTime, rb.velocity.y);
         //rb.AddForce(new Vector2(currentPlayerSpeed, 0f), ForceMode2D.Force);
+
+        animator.SetFloat("Speed", Mathf.Abs(currentPlayerSpeed));
     }
 
     public void RightMove()
@@ -50,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (groundCheck)
         {
+            animator.SetTrigger("Jump");
             rb.velocity = new Vector2(rb.velocity.x, playerJumpForce);
             groundCheck = false;
         }
