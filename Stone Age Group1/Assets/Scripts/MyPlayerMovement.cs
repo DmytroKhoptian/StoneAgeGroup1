@@ -10,7 +10,7 @@ public class MyPlayerMovement : MonoBehaviour
     [SerializeField] private float playerJumpForce;
 
     [SerializeField] private GameObject animObject;
-    [SerializeField] private Animator animator;
+    private Animator animator;
 
     private SpriteRenderer spriteRenderer;
 
@@ -29,8 +29,6 @@ public class MyPlayerMovement : MonoBehaviour
     {
         //ДЗ добавить enum
         rb.velocity = new Vector2(currentPlayerSpeed*Time.deltaTime, rb.velocity.y);
-        //rb.AddForce(new Vector2(currentPlayerSpeed, 0f), ForceMode2D.Force);
-
         animator.SetFloat("Speed", Mathf.Abs(currentPlayerSpeed));
     }
 
