@@ -1,32 +1,28 @@
 // https://docs.unity3d.com/ScriptReference/PlayerPrefs.html
 
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 public class ScoreCounter : MonoBehaviour
 {
+    [SerializeField] private Image hungerImage;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameData gameData;
-    
 
     private void Start()
     {
         scoreText.text = gameData.Score.ToString();
+        gameData.Hunger = 1f;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Update()
     {
-        if (collision.gameObject.layer == 7)
-        {
-            CountScore();
-            Destroy(collision.gameObject);
-        }
+        gameData.Hunger -= Time.deltaTime * gameData.hungerRate;
+        hungerImage.fillAmount = gameData.Hunger;
     }
-
 
     private void CountScore()
     {
@@ -41,7 +37,7 @@ public class ScoreCounter : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == gameData.OpenLevels)
             {
-                gameData.OpenLevels++;   
+                gameData.OpenLevels++;
             }
             gameData.SaveData();
             Debug.Log("YOU WIN!!!");
@@ -49,8 +45,6 @@ public class ScoreCounter : MonoBehaviour
         }
 
     }
-
-
 }
 
 

@@ -9,10 +9,6 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-
-       gameData.Score = gameData.GetData(gameData.scoreValueName);
-       gameData.OpenLevels = gameData.GetData(gameData.openLevelsValueName);
-
         for (int i = 0; i < transform.childCount; i++)
         {
             if(i < gameData.OpenLevels)
